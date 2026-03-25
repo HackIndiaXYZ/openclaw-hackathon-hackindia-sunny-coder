@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div class="sidebar">
+  <h2>📘 Study Planner</h2>
+
+  <a href="/dashboard">🏠 Dashboard</a>
+  <a href="/planner">📚 Planner</a>
+  <a href="/pomodoro">⏱ Pomodoro</a>
+  <a href="/resources">📂 Resources</a>
+  <a href="/grades">📊 Grades</a>
+  <a href="/graph">📈 Graph</a>
+  <a href="/scheduler">🤖 AI Scheduler</a>
+  <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="container">
+
+  <div class="main">
+
+    <h2 class="welcome">Welcome 👋</h2>
+
+    <div class="dashboard-grid">
+
+      <!-- Today's Tasks -->
+      <div class="card big">
+        <h3>📋 Today's Tasks</h3>
+
+        <% if (todayTasks.length > 0) { %>
+          <% todayTasks.forEach(task => { %>
+            <div class="task-item">
+              <span class="dot"></span>
+              <span><%= task.subject %> : <%= task.title %></span>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p>No tasks today</p>
+        <% } %>
+      </div>
+
+      <!-- Pomodoro -->
+      <div class="card">
+        <h3>⏱ Pomodoro</h3>
+        <p>3 Sessions / 75 mins</p>
+      </div>
+
+      <!-- Chart -->
+      <div class="card chart-card">
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <!-- Productivity -->
+      <div class="card gradient-blue">
+        <h3>📈 Productivity</h3>
+        <p><%= completedToday %> Tasks Completed</p>
+      </div>
+
+      <!-- Streak -->
+      <div class="card gradient-orange">
+        <h3>🔥 Study Streak</h3>
+        <h2><%= streak %> Days</h2>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const data = <%- JSON.stringify(chartData) %>;
+
+new Chart(document.getElementById("myChart"), {
+  type: "line",
+  data: {
+    labels: data.labels,
+    datasets: [{
+      label: "Tasks",
+      data: data.values,
+      borderWidth: 3,
+      tension: 0.4
+    }]
+  }
+});
+</script>
+
+</body>
+</html>

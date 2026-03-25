@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resources</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <span class="toggle-btn" onclick="toggleSidebar()">☰</span>
+
+<div class="sidebar">
+  <h2>📘 Study Planner</h2>
+  <a href="/dashboard">🏠 Dashboard</a>
+  <a href="/planner">📚 Planner</a>
+  <a href="/pomodoro">⏱ Pomodoro</a>
+  <a href="/resources">📂 Resources</a>   <!-- NEW -->
+  <a href="/grades">📊 Grades</a>        <!-- NEW -->
+  <a href="/graph">📈 Graph</a>
+  <a href="/scheduler">🤖 AI Study Scheduler</a>
+  <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="planner-container">
+
+  <!-- Header -->
+  <div class="resources-header">
+    <h2>📚 Resources</h2>
+    <button class="add-resource-btn" onclick="toggleForm()">
+  + Add Resource
+</button>
+  </div>
+  <div id="resourceForm" class="resource-form" style="display:none;">
+
+<form action="/add-resource" method="POST" enctype="multipart/form-data">
+
+<select name="type">
+  <option value="link">Link</option>
+  <option value="note">Note</option>
+  <option value="pdf">PDF</option>
+</select>
+
+<input type="text" name="title" placeholder="Title" required>
+<input type="text" name="link" placeholder="Enter Link">
+
+<textarea name="content" placeholder="Write Notes"></textarea>
+
+<input type="file" name="file">
+
+<button type="submit">Add Resource</button>
+
+</form>
+</div>
+
+  <!-- List -->
+  <div class="resource-list">
+
+    <% resources.forEach(r => { %>
+
+      <div class="resource-card">
+
+        <div class="resource-left">
+          <div class="icon">
+            <% if (r.type === "pdf") { %>📕<% } %>
+            <% if (r.type === "link") { %>🔗<% } %>
+            <% if (r.type === "note") { %>📝<% } %>
+          </div>
+
+          <div>
+            <strong><%= r.title %></strong>
+            <p class="resource-type"><%= r.type %></p>
+          </div>
+        </div>
+
+        <div class="resource-right">
+
+          <% if (r.type === "link") { %>
+            <a href="<%= r.link %>" target="_blank">Open</a>
+          <% } %>
+
+          <% if (r.type === "pdf") { %>
+            <a href="/uploads/<%= r.file %>" target="_blank">View</a>
+          <% } %>
+
+          <% if (r.type === "note") { %>
+            <span>Note</span>
+          <% } %>
+
+          <a href="/delete-resource/<%= r._id %>" class="delete">❌</a>
+
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </div>
+
+</div>
+
+<script src="/js/sidebar.js"></script>
+
+</body>
+</html>

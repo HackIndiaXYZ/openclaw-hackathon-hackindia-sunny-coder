@@ -1,0 +1,10 @@
+<h2>Edit Grade</h2>
+
+<form action="/update-grade/<%= grade._id %>" method="POST">
+  <input type="text" name="subject" value="<%= grade.subject %>" required>
+  <input type="number" name="marks" value="<%= grade.marks %>" required>
+  <button type="submit">Update</button>
+</form>
+
+<a href="/edit-grade/<%= g._id %>">Edit</a>
+<a href="/grades">Back</a>

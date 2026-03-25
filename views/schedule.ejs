@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Scheduler</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<span class="toggle-btn" onclick="toggleSidebar()">☰</span>
+
+<div class="sidebar">
+  <h2>📘 Study Planner</h2>
+  <a href="/dashboard">🏠 Dashboard</a>
+  <a href="/planner">📚 Planner</a>
+  <a href="/pomodoro">⏱ Pomodoro</a>
+  <a href="/resources">📂 Resources</a>
+  <a href="/grades">📊 Grades</a>
+  <a href="/graph">📈 Graph</a>
+  <a href="/scheduler">🤖 AI Study Scheduler</a>
+  <a href="/logout">🚪 Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="scheduler-box">
+
+    <h2>🤖 AI Study Scheduler</h2>
+
+    <div class="form-group">
+      <label>Exam Date</label>
+      <input type="date" id="examDate">
+    </div>
+
+    <div class="form-group">
+      <label>Syllabus Topics</label>
+      <input type="text" id="topics" placeholder="Enter topics">
+    </div>
+
+    <div class="result-box">
+      <p><b>Generated schedule:</b></p>
+      <ul id="scheduleList"></ul>
+    </div>
+
+    <button onclick="generateSchedule()" class="generate-btn">
+      Generate Schedule
+    </button>
+
+  </div>
+
+</div>
+
+<script src="/js/sidebar.js"></script>
+<script src="/js/ai.js"></script>
+
+</body>
+</html>

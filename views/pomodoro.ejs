@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <span class="toggle-btn" onclick="toggleSidebar()">☰</span>
+
+<div class="sidebar">
+  <h2>📘 Study Planner</h2>
+  <a href="/dashboard">🏠 Dashboard</a>
+  <a href="/planner">📚 Planner</a>
+  <a href="/pomodoro">⏱ Pomodoro</a>
+  <a href="/resources">📂 Resources</a>   <!-- NEW -->
+  <a href="/grades">📊 Grades</a>        <!-- NEW -->
+  <a href="/graph">📈 Graph</a>
+  <a href="/scheduler">🤖 AI Study Scheduler</a>
+  <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="pomodoro-container">
+
+  <h2>Pomodoro Timer</h2>
+
+  <div class="timer-circle">
+    <span id="time">25:00</span>
+  </div>
+
+  <div class="controls">
+    <button onclick="startTimer()" class="start">Start</button>
+    <button onclick="pauseTimer()" class="pause">Pause</button>
+    <button onclick="resetTimer()" class="reset">Reset</button>
+  </div>
+
+  <div class="stats">
+    Sessions: <span id="sessions">0</span> |
+    Focus Time: <span id="focus">0</span> mins
+  </div>
+
+</div>
+
+<script src="/js/timer.js"></script>
+<script src="/js/sidebar.js"></script>
+
+</body>
+</html>

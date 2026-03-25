@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grades</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+  <h2>📘 Study Planner</h2>
+  <a href="/dashboard">🏠 Dashboard</a>
+  <a href="/planner">📚 Planner</a>
+  <a href="/pomodoro">⏱ Pomodoro</a>
+  <a href="/resources">📂 Resources</a>   <!-- NEW -->
+  <a href="/grades">📊 Grades</a>        <!-- NEW -->
+  <a href="/graph">📈 Graph</a>
+  <a href="/scheduler">🤖 AI Study Scheduler</a>
+  <a href="/logout">🚪 Logout</a>
+</div>
+
+
+<div class="main">
+
+  <div class="planner-wrapper">
+
+    <!-- CARD -->
+    <div class="planner-container">
+
+      <h2>📊 Productivity Graph</h2>
+
+      <canvas id="myChart"></canvas>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+      datasets: [{
+        label: "Study Hours",
+        data: [2, 3, 4, 3, 5],
+        borderWidth: 1,
+        borderRadius: 10
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

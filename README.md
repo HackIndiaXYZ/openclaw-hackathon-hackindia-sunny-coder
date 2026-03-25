@@ -31,6 +31,31 @@ A full-stack web application to help students manage their study schedule, tasks
 
 1. Clone the repository
 
+## 🚀 How to Run
+
+1. Clone the repository
+   git clone https://github.com/HackIndiaXYZ/openclaw-hackathon-hackindia-sunny-coder.git
+
+2. Navigate to the project
+   cd openclaw-hackathon-hackindia-sunny-coder
+
+3. Install dependencies
+   npm install
+
+4. Create a .env file and add:
+   PORT=3000
+   MONGO_URI=your_mongodb_connection_string
+   SESSION_SECRET=your_secret_key
+
+5. Run the server
+   npm start
+
+6. Open in browser
+   http://localhost:3000
+
+## 👨‍💻 Author
+Sunny Kumar
+
 
 ## 📸 Screenshots
 <img width="1901" height="922" alt="Screenshot 2026-03-23 001401" src="https://github.com/user-attachments/assets/e3b8eabf-69b4-453c-8ced-36131367c418" />

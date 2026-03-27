@@ -53,6 +53,8 @@ A full-stack web application to help students manage their study schedule, tasks
 6. Open in browser
    http://localhost:3000
 
+## Demo video
+
 ## 👨‍💻 Author
 Sunny Kumar
 

@@ -54,6 +54,7 @@ A full-stack web application to help students manage their study schedule, tasks
    http://localhost:3000
 
 ## Demo video
+Demo: https://youtu.be/lpzHhZ4eHHg
 
 ## 👨‍💻 Author
 Sunny Kumar
